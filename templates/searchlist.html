@@ -1,0 +1,63 @@
+<html>
+	<head>
+		<title>Búsqueda de Task</title>
+		<link rel="stylesheet" type="text/css"  href="{{url_for('static',filename='assets/style.css')}}" >
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	</head>
+<body>
+
+	<!-- Logo de la universidad -->
+	<img src="static/images/LogoUIP.png">
+
+	<h1>----- Búsqueda -----</h1>
+	<hr>
+	{% if all[0] %}
+	<h3>Resultados de la Búsqueda: </h3>
+	<table class="table table-striped table-dark">
+		<thead>
+		<tr id="row">
+			<th class="product">Producto</th>
+			<th class="ammount">Cantidad</th>
+			<th class="persontype">Tipo</th>
+			<th class="detail">Detalles</th>
+			<th class="cost">Monto $</th>
+			<th class="account">Cuenta</th>
+			<th class="fecha">Fecha</th>
+			<th class="hora">Hora</th>
+			<th class="state">Estado</th>
+			<th class="func1">Remover</th>
+			<th class="func2">Modificar</th>
+		</tr>
+		</thead>
+		<tbody>
+		<!-- Tabla de Iostreams -->
+		{% for Iostream in all %}
+		<tr>
+			<td class="product">{{ Iostream["product"] }}</td>
+			<td class="ammount">{{ Iostream["ammount"] }}</td>
+			<td class="persontype">{{ Iostream["persontype"] }}</td>
+			<td class="detail">{{ Iostream["detail"] }}</td>
+			<td class="cost">{{ Iostream["cost"] }}</td>
+			<td class="account">{{ Iostream["account"] }}</td>
+			<td class="fecha">{{ Iostream["fecha"] }}</td>
+			<td class="hora">{{ Iostream["hora"] }}</td>
+			<td><a href="./done?_id={{Iostream['_id'] }}"><input alt="Submit ME"
+																 src="static/images/{{Iostream['state']}}.png"
+																 type="image"></a></td>
+			<td class="func1"><a href="./removeIostream?_id={{ Iostream['_id'] }}">
+				<button type="submit">Borrar</button>
+			</a></td>
+			<td class="func2"><a href="./updateIostream?_id={{ Iostream['_id'] }}">
+				<button type="submit">Editar</button>
+			</a></td>
+		</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	{% else %}
+	<h4>No se encontraron resultados.</h4>
+	{% endif %}
+	<hr>
+	<a href="/iostream">Regresar a Ingresos y Gastos</a>
+</body>
+</html>

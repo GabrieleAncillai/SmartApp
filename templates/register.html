@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>UIP Registro</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="{{ url_for('static',filename='assets/twemoji.min.js')}}"></script>
+		<script src="{{ url_for('static',filename='assets/emoji.js')}}"></script>
+    </head>
+
+    <body style="background-color:#d0d0d0;">
+
+        <!-- Función de registro -->
+        <form action="/register" method="POST">
+
+            <div class="jumbotron" style="background-color:#3cd462">
+                <img src="../static/images/referencia-UIP-blanco-01.png" width="300" align="right">
+                <div class="container" style="height:20px;">
+                    <div class="Registro">
+                        <h1 class="display-4" style="color:#FFF"><b>Registro</b></h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nombre y apellido -->
+            <div class="text-center" style="margin: 20px">
+                <label for="formGroupExampleInput" class="col-sm-2 col-form-label">Ingrese nombre</label>
+                <div class="text-center ">
+                    <input type="text" name="name" class="col-sm-3" id="formGroupExampleInput" placeholder="Nombre y Apellido" required>
+                </div>
+            </div>
+
+            <!-- Nombre de Usuario -->
+            <div class="text-center" style="margin: 20px">
+                <label for="formGroupExampleInput" class="col-sm-2 col-form-label">Ingrese Username</label>
+                <div class="text-center ">
+                    <input type="text" name="username" class="col-sm-3" id="formGroupExampleInput2" placeholder="Nombre de Usuario" required>
+                </div>
+            </div>
+
+            <!-- Identificación -->
+            <div class="text-center" style="margin: 20px">
+                <label for="formGroupExampleInput" class="col-sm-2 col-form-label">Cédula o pasaporte</label>
+                <div class="text-center">
+                    <input type="text" name="identification" class="col-sm-2" id="ExampleInput" placeholder="ID" required>
+                </div>
+            </div>
+
+            <!-- Password -->
+            <div class="text-center" style="margin: 20px">
+                <label for="inputPassword">Password</label>
+                <div class="text-center">
+                    <input type="password" name="password" id="inputPassword" class="col-sm-2" aria-describedby="passwordHelpBlock" placeholder="Password" required>
+                    <small id="passwordHelpBlock" class="form-text text-muted">
+                        Su contraseña debe tener min 8 caracteres
+                </small>
+                </div>
+            </div>
+
+            <!-- Mail -->
+            <div class="text-center" style="margin: 20px">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Email</label>
+                <div class="text-center">
+                    <input type="email" name="mail" class="col-sm-2" id="colFormLabel" placeholder="example@mail.com" required>
+                </div>
+            </div>
+
+            <!-- Genero -->
+            <div class="text-center" style="margin: 20px">
+                <label for="colFormLabel" class="col-form-label">Sexo</label>
+                <select name="gender" class="text-center" id="Sexo">
+                    <option value="Male">Masculino</option>
+                    <option value="Female">Femenino</option>
+                    <option value="Other">Otro</option>
+                </select>
+            </div>
+
+            <!-- Fecha de Nacimiento -->
+            <div class="form-group text-center" style="margin: 20px">
+                <div class="text-center">
+                    <label for="colFormLabel" class="col-form-label">Día: </label>
+                    <input type="number" name="birthday" class="col-form-label" min="1" max="31">
+                    <label for="colFormLabel" class="col-form-label">Mes: </label>
+                    <input type="number" name="birthmonth" class="col-form-label" min="1" max="12">
+                    <label for="colFormLabel" class="col-form-label">Año: </label>
+                    <input type="number" name="birthyear" class="col-form-label" min="1960" max="2010">
+                </div>
+            </div>
+
+            <div class="text-center" style="margin: 20px">
+                <button type="submit" class="btn btn-primary">Registrar</button>
+            </div>
+
+        </form>
+
+        <!-- Si ya tienes cuenta, redirecciona a /acceso -->
+        <form action="/acceso">
+            <div class="text-center" style="margin: 20px">
+                <button type="submit" class="btn btn-primary">Acceder</button>
+            </div>
+        </form>
+
+        <script src="/static/js/bootstrap.js"></script>
+
+    </body>
+</html>

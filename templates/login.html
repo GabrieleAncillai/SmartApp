@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="{{ url_for('static',filename='assets/twemoji.min.js')}}"></script>
+		<script src="{{ url_for('static',filename='assets/emoji.js')}}"></script>
+        <title>Inicio de Sesión</title>
+    </head>
+
+    <body style="background-color:#F3F9E6;">
+    <form action="/login" method="GET">
+        <div class="jumbotron jumbotron-fluid" style="background-color:#3cd462">
+            <img src="../static/images/referencia-UIP-blanco-01.png" width="350" height="100" align="right">
+            <div class="container" style="height:20px;">
+                <div class="Acceder">
+                    <h1 class="display-4" style="color:#FFF"><b>Iniciar Sesión</b></h1>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="height:20px">
+            <div class="text-center">
+                <label for="ID">Cédula o pasaporte</label>
+                <div class="text-center">
+                    <input type="text" name="ID" class="col-sm-3" id="ID" placeholder="Username">
+                </div>
+            </div>
+            <div class="text-center" style="margin: 20px">
+                <label for="ipassword">Contraseña</label>
+                    <div>
+                        <input type="password" name="key" class="col-sm-2" id="ipassword" placeholder="Ingrese contraseña">
+                    </div>
+            </div>
+
+            {% if uncorrect is sameas true %}
+            <small>
+                Valores incorrectos o usuario inexistente
+            </small>
+            {% endif %}
+
+            <div class="text-center" style="margin: 20px">
+                <button type="submit" class="btn btn-primary btn-lg">Entrar</button>
+            </div>
+           </div>
+    </form>
+     <script src="/static/js/bootstrap.js"></script>
+    </body>
+</html>
